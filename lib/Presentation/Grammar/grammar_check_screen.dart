@@ -10,6 +10,10 @@ class GrammarChecker extends StatefulWidget {
 class _GrammarCheckerState extends State<GrammarChecker> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      child: Center(
+        child: Text('Grammar Page'),
+      ),
+    );
   }
 }

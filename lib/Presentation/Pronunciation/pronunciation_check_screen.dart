@@ -10,6 +10,10 @@ class PronunciationChecker extends StatefulWidget {
 class _PronunciationCheckerState extends State<PronunciationChecker> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container(
+      child: Center(
+        child: Text('Pronunciation Page'),
+      ),
+    );
   }
 }
