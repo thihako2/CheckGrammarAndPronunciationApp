@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mmengstrain/Logic/Bloc/navigation/navigation_cubit.dart';
 import 'package:mmengstrain/Presentation/Pages/HomePage.dart';
 
 void main() {
@@ -15,7 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: BlocProvider(
+        create: (context) => NavigationCubit(),
+        child: HomePage(),
+      ),
     );
   }
 }
