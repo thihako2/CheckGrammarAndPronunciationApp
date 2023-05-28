@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ErrorShower extends StatelessWidget {
+class TextToWatch extends StatelessWidget {
   Color color;
   String text;
-  ErrorShower({required this.text, required this.color});
+  TextToWatch({required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,7 @@ class ErrorShower extends StatelessWidget {
               borderRadius: BorderRadius.circular(20)),
           child: Padding(
             padding: const EdgeInsets.all(20),
-            child: Text(
-              this.text,
-              style: TextStyle(color: this.color),
-            ),
+            child: Text(this.text),
           )),
     );
   }
