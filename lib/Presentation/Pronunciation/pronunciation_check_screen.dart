@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mmengstrain/Logic/Bloc/Pronunciation/text_field_text/textfield_text_bloc.dart';
 import 'package:mmengstrain/Logic/Constants/Global/Colors.dart';
+import 'package:mmengstrain/Presentation/Pronunciation/record__checker_page.dart';
 import 'package:mmengstrain/Presentation/Widgets/InputViewWidgets.dart';
+import 'package:mmengstrain/Presentation/Widgets/ResponsiveNextButton.dart';
 
 class PronunciationChecker extends StatefulWidget {
   const PronunciationChecker({super.key});
@@ -10,41 +14,48 @@ class PronunciationChecker extends StatefulWidget {
 }
 
 class _PronunciationCheckerState extends State<PronunciationChecker> {
+  TextEditingController controller = TextEditingController();
+  String text = "";
+
+  set string(String value) => setState(() => text = value);
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  SetText(String val) {
+    setState(() {
+      text = val;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: AppColors.base,
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            InputView(),
+            InputView(
+              controller: controller,
+            ),
             SizedBox(
               height: 20,
             ),
-            GestureDetector(
-              onTap: () {},
-              child: Container(
-                width: 300,
-                height: 60,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: AppColors.secondary),
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Check Pronunciation",
-                        style: TextStyle(color: AppColors.base),
-                      ),
-                      Image.asset('Assets/Icons/next.png')
-                    ],
-                  ),
-                ),
-              ),
+            BlocBuilder<TextfieldTextBloc, TextfieldTextState>(
+              builder: (context, state) {
+                return ResponsiveNextButton(
+                    NextWidget: RecordAndCheckPage(
+                        texttorecord:
+                            state is TextfieldGetTextState ? state.text : ""),
+                    ShowText: "Check Pronunciation",
+                    Width: 300);
+              },
             )
           ],
         ),
