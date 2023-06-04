@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mmengstrain/Logic/Bloc/Pronunciation/text_field_text/textfield_text_bloc.dart';
 import 'package:mmengstrain/Logic/Constants/Global/Colors.dart';
-import 'package:mmengstrain/Presentation/Pronunciation/record__checker_page.dart';
+import 'package:mmengstrain/Presentation/Pronunciation/voice_checker.dart';
 import 'package:mmengstrain/Presentation/Widgets/InputViewWidgets.dart';
 import 'package:mmengstrain/Presentation/Widgets/ResponsiveNextButton.dart';
 
@@ -50,9 +50,13 @@ class _PronunciationCheckerState extends State<PronunciationChecker> {
             BlocBuilder<TextfieldTextBloc, TextfieldTextState>(
               builder: (context, state) {
                 return ResponsiveNextButton(
-                    NextWidget: RecordAndCheckPage(
-                        texttorecord:
-                            state is TextfieldGetTextState ? state.text : ""),
+                    NextWidget: VoiceCheck(
+                      texttoRecord:
+                          state is TextfieldGetTextState ? state.text : "",
+                    ),
+                    // NextWidget: RecordAndCheckPage(
+                    //     texttorecord:
+                    //         state is TextfieldGetTextState ? state.text : ""),
                     ShowText: "Check Pronunciation",
                     Width: 300);
               },

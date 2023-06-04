@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mmengstrain/Logic/Bloc/navigation/navigation_cubit.dart';
 import 'package:mmengstrain/Presentation/Pages/HomePage.dart';
-import 'package:mmengstrain/Presentation/Pronunciation/record__checker_page.dart';
 
 void main() {
   runApp(const MyApp());

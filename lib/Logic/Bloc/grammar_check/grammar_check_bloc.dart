@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:mmengstrain/Logic/Repository/grammar_repository.dart';
+import 'package:mmengstrain/Logic/Repository/GrammarRepo/grammar_repository.dart';
 import 'package:mmengstrain/Logic/models/GrammarModel.dart';
 
 part 'grammar_check_event.dart';
