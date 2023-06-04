@@ -9,7 +9,8 @@ class TextfieldTextBloc extends Bloc<TextfieldTextEvent, TextfieldTextState> {
     // on<TextfieldTextEvent>((event, emit) {
     //   // TODO: implement event handler
     // });
-    on<SetTextEvent>(
-        (event, emit) => emit(TextfieldGetTextState(text: event.gettext)));
+    on<SetTextEvent>((event, emit) {
+      emit(TextfieldGetTextState(text: event.gettext));
+    });
   }
 }

@@ -1,4 +1,4 @@
-import 'package:mmengstrain/Logic/Repository/grammar-provider.dart';
+import 'package:mmengstrain/Logic/Repository/GrammarRepo/grammar-provider.dart';
 import 'package:mmengstrain/Logic/models/GrammarModel.dart';
 
 class GrammarRepository {
